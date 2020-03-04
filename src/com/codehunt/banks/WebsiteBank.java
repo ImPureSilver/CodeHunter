@@ -5,12 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WebsiteBank implements Serializable{
-    /*
-     * TODO: PURPOSE OF [WebsiteBank]
-     *   This class is made to holds, adds, removes,
-     *   and retrieves websites that at a users
-     *   command.
-     */
 
     private List<String> websites;
 
@@ -45,11 +39,11 @@ public class WebsiteBank implements Serializable{
 
         } catch (Exception e) {
             System.out.println("Done reading websites...");
-//            e.printStackTrace();
         }
     }
 
     public int addWebsite(String website){
+
         // Delete any whitespace in the string
         website = website.trim();
         // If the website is anlready in the list, it can't be added again

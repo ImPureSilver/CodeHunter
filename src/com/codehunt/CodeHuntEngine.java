@@ -17,28 +17,11 @@ public class CodeHuntEngine {
     private WebsiteBank websiteBank;
     private CodeBank codeBank;
 
-    /* TODO:
-          Continue to implement ways to capture and use
-          the website codes and sites into the engine.
-    */
 
     public CodeHuntEngine() {
         this.codeBank = new CodeBank();
         this.websiteBank = new WebsiteBank();
     }
-
-//    public CodeHunter(String website){
-//
-//        pullSiteCodes(website);
-//    }
-//
-//    public CodeHunter(List<String> weblinks){
-//
-//        for(String website : weblinks){
-//            pullSiteCodes(website);
-//        }
-//    }
-
 
     public int recoverSavedStuff(){
 
