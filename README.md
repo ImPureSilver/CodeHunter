@@ -17,8 +17,7 @@ There should not be any dependecy issues due to this being made in pure Java 8.
     - Come up with an efficent way to run this in the background
     - Create a easy to use GUI
     - Create an Account Management option
-    - Create an Advanced menu for things like...
-	- Creating your own RegEx
+    - Create an Advanced menu for things like: Creating your own RegEx
 
 # What's the purpose going forward?
 That'll have to depend on how well me or others that are interested goes.
