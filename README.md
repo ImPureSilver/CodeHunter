@@ -12,16 +12,15 @@ have it build on IntelliJ IDEA or any other way of getting the code to run Main.
 There should not be any dependecy issues due to this being made in pure Java 8.
 
 # Goals
-My Goals for this project is for it to become a lesser hassle to
-get any SHiFT code for the Borderlands games.
-
-So, the initial idea was to have a program that runs in the background
-of my PC/Raspberry Pi and just visit it to only drop in new sites.
-Have those sites checked for codes and have those added
-to my account.
+    - Automate the code redemption process
+    - Create an installer to make runnin the program easire
+    - Come up with an efficent way to run this in the background
+    - Create a easy to use GUI
+    - Create an Account Management option
+    - Create an Advanced menu for things like...
+	- Creating your own RegEx
 
 # What's the purpose going forward?
 That'll have to depend on how well me or others that are interested goes.
-In the future, I wish to make the program redeem codes automatically and
-have it run in the background securely. For now, I am not very familiar with
-security or how I can make CodeHunter run in the background.
+For now, I am not very familiar with security or how I can make 
+CodeHunter run in the background.
