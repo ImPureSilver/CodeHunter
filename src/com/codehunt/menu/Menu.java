@@ -17,6 +17,7 @@ public class Menu {
 
     public void show(boolean menuIsRunning){
 
+        CodeHuntEngine engine = new CodeHuntEngine();
         greeting();
         while (menuIsRunning){
 
@@ -36,7 +37,7 @@ public class Menu {
                 case "1":
                     // Show all of the codes
                     System.out.println("Displaying code...");
-                    new CodeHuntEngine().showAllCodes();
+                    engine.showAllCodes();
                     break;
 
                 case "2":
@@ -45,7 +46,7 @@ public class Menu {
                     System.out.println("Website to add:");
                     String websiteToAdd = new Scanner(System.in).nextLine();
                     // Pass website into CodeHuntEngine for storage
-                    if (new CodeHuntEngine().addSite(websiteToAdd) == 1)
+                    if (engine.addSite(websiteToAdd) == 1)
                         System.out.println("Can't add the website");
 
                     System.out.println("Website added!");
@@ -66,14 +67,14 @@ public class Menu {
                 case "4":
                     // Tell CodeHuntEngine to use all the sites and get codes
                     System.out.println("Scanning for codes...");
-                    new CodeHuntEngine().pullAllCodesFromSites();
+                    engine.pullAllCodesFromSites();
                     System.out.println("Done!");
-                    show(true);
+//                    show(true);
                     break;
 
                 case "5":
                     System.out.println("Showing all sites...");
-                    new CodeHuntEngine().showAllWebsites();
+                    engine.showAllWebsites();
                     break;
 
                 default:

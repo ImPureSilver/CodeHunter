@@ -21,6 +21,7 @@ public class CodeHuntEngine {
     public CodeHuntEngine() {
         this.codeBank = new CodeBank();
         this.websiteBank = new WebsiteBank();
+        recoverSavedStuff();
     }
 
     public int recoverSavedStuff(){
