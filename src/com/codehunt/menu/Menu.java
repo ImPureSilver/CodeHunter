@@ -12,7 +12,7 @@ public class Menu {
     }
 
     private void greeting(){
-        System.out.println("Welcome to CodeHunter!!!\n" + "Below are the following actions:\n");
+        System.out.println("\n\n[C O D E  H U N T E R]\n");
     }
 
     public void show(boolean menuIsRunning){
@@ -45,9 +45,14 @@ public class Menu {
                     // Ask user for the site and pass it to CodeHuntEngine to add it
                     System.out.println("Website to add:");
                     String websiteToAdd = new Scanner(System.in).nextLine();
+
+                    if (websiteToAdd.equals("") || websiteToAdd.equals(" "))
+                    System.out.println("returning to Main menu...");
+
                     // Pass website into CodeHuntEngine for storage
-                    if (engine.addSite(websiteToAdd) == 1)
+                    else if (engine.addSite(websiteToAdd) == 1)
                         System.out.println("Can't add the website");
+                        engine.saveState();
 
                     System.out.println("Website added!");
                     break;
@@ -55,11 +60,20 @@ public class Menu {
                 case "3":
                     // Remove a site
                     // Ask user for site and pass it to CodeHuntEngine to remove it
+                    engine.showAllWebsites();
                     System.out.println("Website to remove:");
                     String websiteToRemove = new Scanner(System.in).nextLine();
+
+                    if (websiteToRemove.equals("") || websiteToRemove.equals(" ")) {
+                        System.out.println("Returning to Main menu...");
+                        break;
+                    }
+
+                    engine.removeSite(websiteToRemove);
                     // Pass website into CodeHuntEngine for removal
-                    if (new CodeHuntEngine().removeSite(websiteToRemove) == 1)
-                        System.out.println("That site isn't in the list");
+//                    if (engine.removeSite(websiteToRemove) == 1)
+//                        System.out.println("That site isn't in the list");
+                    engine.saveState();
 
                     System.out.println("Site has been removed!");
                     break;
@@ -69,7 +83,6 @@ public class Menu {
                     System.out.println("Scanning for codes...");
                     engine.pullAllCodesFromSites();
                     System.out.println("Done!");
-//                    show(true);
                     break;
 
                 case "5":

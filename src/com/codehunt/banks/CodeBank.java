@@ -3,12 +3,11 @@ package com.codehunt.banks;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CodeBank implements Serializable {
-    private transient Stack<String> newCodes = new Stack<>();
+//    private transient Stack<String> newCodes = new Stack<>();
     private Set<String> foundCodes = new HashSet<>();
 
 
@@ -24,7 +23,7 @@ public class CodeBank implements Serializable {
         if (matcher.find()) {
             // If the code is not a copy, push it onto the newCodes Stack
             if (!checkForNewCode(matcher.group())){
-                this.newCodes.push(matcher.group());
+                this.foundCodes.add(matcher.group());
                 return 0;
             }
         }
@@ -42,7 +41,7 @@ public class CodeBank implements Serializable {
         if (matcher.find()) {
             // If the code is not a copy, push it onto the newCodes Stack
             if (!checkForNewCode(matcher.group())){
-                this.newCodes.push(matcher.group());
+                this.foundCodes.add(matcher.group());
                 return 0;
             }
         }
@@ -64,9 +63,13 @@ public class CodeBank implements Serializable {
             for (String code : this.foundCodes){
                 objectOutput.writeObject(code);
             }
+            System.out.println("\n:::Done saving codes:::\n");
             // Try block automatically closes OOS and FOS
         }
-        catch (Exception e){ e.printStackTrace(); }
+        catch (Exception e){
+            System.out.println("saveCodes broke at {checkForNewCode} in CodeBank");
+            e.printStackTrace();
+        }
     }
 
     // Retrieves String codes of foundCodes from previous run
@@ -83,19 +86,27 @@ public class CodeBank implements Serializable {
                     this.foundCodes.add(codeFromDead);
                 }
             }
+            System.out.println("\n:::Done reading codes:::\n");
         } catch (Exception e) {
-            System.out.println("Done reading codes...");; }
+            System.out.println("Done reading codes...");
+        }
     }
 
-    public String yankCode(){
-        return this.newCodes.pop();
-    }
+    // For later use in automating code redemption
+//    public String yankCode(){
+//        return this.newCodes.pop();
+//    }
 
     public void showCodes(){
+
+        if (this.foundCodes.isEmpty()) {
+            readCodes();
+        }
 
         for(String code: this.foundCodes){
             System.out.println(code);
         }
+
         System.out.println("Total codes: " + this.foundCodes.size());
     }
 }

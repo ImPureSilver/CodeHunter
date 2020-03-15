@@ -24,11 +24,16 @@ public class CodeHuntEngine {
         recoverSavedStuff();
     }
 
-    public int recoverSavedStuff(){
+    public void recoverSavedStuff(){
 
         codeBank.readCodes();
         websiteBank.readWebsites();
-        return 0;
+    }
+
+    public void saveState(){
+        this.websiteBank.saveWebsites();
+        this.codeBank.saveCodes();
+
     }
 
     public void showAllCodes(){
